@@ -4,7 +4,7 @@
 
 pkgname=svt-av1
 pkgver=3.1.2
-pkgrel=1
+pkgrel=${pkgrel:-0}
 pkgdesc="Scalable Vector Technology for AV1 encoder (SVT-AV1 Encoder)"
 url="https://gitlab.com/AOMediaCodec/SVT-AV1"
 # 32-bit is not supported upstream
@@ -46,6 +46,7 @@ enclib() {
     amove usr/lib/libSvtAv1Enc.so.*
 }
 
+options="$options ${DISABLE_CHECK:+!check}"
 sha512sums="
 d23327cf348d576643d6385f756d9354ed93801c99bf63c4fb049902f4fd2b81c816cacdcab71dffb1cc330385c89c5abef67b8f81d2abd69a70f01a3e55b25a  SVT-AV1-v3.1.2.tar.bz2
 58f3033572fe61ca84bc4ecd834f35df04b64a2f56be397d2cc708859b512786cbe6a7d2a7753660b5b552542c235d521b4acfd609dcb45917f6b307d5174bd6  do-not-link-libpthread.patch
